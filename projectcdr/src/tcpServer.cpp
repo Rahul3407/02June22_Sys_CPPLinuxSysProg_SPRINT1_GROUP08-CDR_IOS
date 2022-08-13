@@ -85,7 +85,7 @@ void process_chunk(string l)
         else{
 
              if(col[3]=="MTC"){
-            	 Operator o(l1,col[1],t1,l2,l3,l4,l5,l6);
+            	 Operator o(l1,col[1],l2,t1,l3,l4,l5,l6);
                  out[l1]=o;
 	             }
              else if(col[3]=="MOC"){
