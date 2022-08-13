@@ -200,7 +200,7 @@ int main()
 									cout <<"Processed Data"<<endl;
                                 }
                                 ofstream outfile;
-                                outfile.open("out.txt",ios::in|ios::out);
+                                outfile.open("out.txt");
              				 
 							 map<long,Operator>::iterator itr;
                              
