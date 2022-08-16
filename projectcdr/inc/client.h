@@ -1,22 +1,26 @@
 #pragma once
 #include <myHeader.h>
-#define PORT 4056
+#define PORT 4056      //Port to be open
 
 int process_cdr();
 
 class User{
-	public:
-    	User() {}
-        User(int a,string u,string g,string p){
-        	age=a;
+        public:
+        User() {}   //Default Costructor
+        User(int a,string u,string g,string p)      //Parameterized Constructor
+                {
+            age=a;
             username=u;
             gender=g;
             password=p;
         }
+                //Function prototypes
         string getPass();
         string getUser();
-	private:
-    	int age;
+
+                //Declaring variables
+        private:
+        int age;
         string username;
         string gender;
         string password;
