@@ -18,7 +18,7 @@
 
 using namespace std;
 
-const std::string WHITESPACE = " \n\r\t\f\v";
+const std::string WHITESPACE = " \n\r\t\f\v";    //To remove extraspaces
 
 std::string ltrim(const std::string &s)
 {
