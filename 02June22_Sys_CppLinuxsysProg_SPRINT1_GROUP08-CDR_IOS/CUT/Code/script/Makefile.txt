@@ -1,0 +1,35 @@
+CC = g++
+LFLAGS = -o
+CFLAGS = -c -g -Wall -Werror
+INC = ./inc
+IFLAG = -I$(INC)
+BIN = ./bin
+OBJ = ./obj
+SRC = ./src
+CVFLAGS = -v --tool=memcheck --leak-check=full --show-reachable=yes --log-file=valclient
+
+all: cdrserver cdrclient 
+
+cdrclient: $(OBJ)/tcpClient.o
+	$(CC) $(LFLAGS) $(BIN)/cdrclient $(OBJ)/tcpClient.o
+
+$(OBJ)/tcpClient.o: $(SRC)/tcpClient.cpp
+	$(CC) $(CFLAGS) $(IFLAG) $(SRC)/tcpClient.cpp
+	mv *.o $(OBJ)
+
+cdrserver: $(OBJ)/tcpServer.o
+	$(CC) $(LFLAGS) $(BIN)/cdrserver $(OBJ)/tcpServer.o
+
+$(OBJ)/tcpServer.o: $(SRC)/tcpServer.cpp
+	$(CC) $(CFLAGS) $(IFLAG) $(SRC)/tcpServer.cpp
+	mv *.o $(OBJ)
+
+valgrind:
+	valgrind --leak-check=full $(BIN)/cdrserver $(BIN)/cdrclient
+	mv valgrind $(BIN)
+
+clean:
+	rm -f *.o a.out
+	rm -f $(OBJ)/*.o
+	rm -f $(BIN)/cdrserver $(BIN)/cdrclient
+	@echo "Cleaning Done!"
