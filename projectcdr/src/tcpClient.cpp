@@ -172,7 +172,7 @@ int process_cdr(){
                          cin>>buff2;
                          write(sockfd, buff2, strlen(buff2));    //Sending country code to line 167 of server if condition of line 150 fails in this client file
                          bzero(buff, sizeof(buff));
-                         if(read(sockfd, buff, MAX_SIZE) < 0)    //Here buff="Not" if condition of line 173 fails
+                         if(read(sockfd, buff, MAX_SIZE) < 0)    //Here buff="Not" if condition of line 173 fails in server
                          {
                                 perror("read() error");
                                 exit(1);
