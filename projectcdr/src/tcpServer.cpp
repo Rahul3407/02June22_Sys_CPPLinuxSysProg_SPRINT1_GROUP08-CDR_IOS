@@ -194,8 +194,8 @@ int main()
                             if(!file)
                                 {
                                         cout<<"Unable to open"<<endl;
-                                                                        char buff2[]="Unable to find cdr file";
-                                                                        write(newSockfd, buff2, strlen(buff2));
+                                        char buff2[]="Unable to find cdr file";
+                                        write(newSockfd, buff2, strlen(buff2));
                                 }
                             else
                                 {
@@ -203,12 +203,12 @@ int main()
                                     while(getline(file,l)){
                                         process_chunk(l);
                                     }
-                                                                        cout <<"Processed Data"<<endl;
+                                     cout <<"Processed Data"<<endl;
                                 }
                                 ofstream outfile;
                                 outfile.open("out.txt");
-                                                         map<long,Operator>::iterator itr;
-                                                         for(itr=out.begin();itr!=out.end();++itr){
+                                map<long,Operator>::iterator itr;
+                                for(itr=out.begin();itr!=out.end();++itr){
                                         outfile<< "Operator Brand: " <<  (itr->second).getName() << " ("<<itr->first<< ")\n\tIncoming voice call durations: "<< (itr->second).getInc() <<"\n\tOutgoing voice call durations: "<< (itr->second).getOuc()<<"\n\tIncoming SMS messages: "<< (itr->second).getIn()<<"\n\tOutgoing SMS messages: "<<(itr->second).getOut()<<"\n\tMB downloaded: "<< (itr->second).getDown()<<" | MB uploaded: "<< (itr->second).getUp()<<endl;
                         }
                                 outfile.close();
@@ -216,7 +216,7 @@ int main()
                                 write(newSockfd, buff1, strlen(buff1));      //Sending content of buff1 to line 165 of client
                                 bzero(buff, sizeof(buff));
                                 bzero(buff1, sizeof(buff1));
-                                                                break;
+                                  break;
                           }
                     }
                 }
