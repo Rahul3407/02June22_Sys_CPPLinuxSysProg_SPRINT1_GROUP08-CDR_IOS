@@ -1,9 +1,10 @@
 #pragma once
+
 #include <myHeader.h>
 
 class Operator
 {
-	public:
+        public:
         Operator(){}    //Default Costructor
         Operator(long o,string b,long c1,long c2,long dow,long up,long in,long out)    //Parameterized Constructor
         {
@@ -16,9 +17,9 @@ class Operator
             in_msg=in;
             out_msg=out;
         }
-   //setters and getters
+   //Setters and getters prototypes
 
-	    string getName();
+        string getName();
         void setInc(long);
         void setOuc(long);
         void setDown(long);
@@ -33,8 +34,9 @@ class Operator
         long getOut();
         long getId();
 
+//Declaring variables
     private:
-    	long t_operators;
+        long t_operators;
         string b_name;
         long incom_call;
         long out_call;
